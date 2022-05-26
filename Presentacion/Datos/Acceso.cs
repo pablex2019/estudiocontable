@@ -45,5 +45,9 @@ namespace Presentacion.Datos
                 fs.Write(info, 0, info.Length);
             }
         }
+        public void Eliminar(string nombreArchivo)
+        {
+            File.Delete(this.ArchivoDatos);
+        }
     }
 }
