@@ -1,1 +1,13 @@
-C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\EstudioContable\Presentacion\bin\Debug\Presentacion.exe.config
+C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\bin\Debug\Presentacion.exe.config
+C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\bin\Debug\Presentacion.exe
+C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\bin\Debug\Presentacion.pdb
+C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\bin\Debug\Newtonsoft.Json.dll
+C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\bin\Debug\Newtonsoft.Json.xml
+C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\obj\Debug\Presentacion.Properties.Resources.resources
+C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\obj\Debug\Presentacion.Vistas.Empleado.resources
+C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\obj\Debug\Presentacion.Vistas.InicioSesion.resources
+C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\obj\Debug\Presentacion.Vistas.Panel.resources
+C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\obj\Debug\Presentacion.csproj.GenerateResource.Cache
+C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\obj\Debug\Presentacion.exe
+C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\obj\Debug\Presentacion.pdb
+C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\obj\Debug\Presentacion.csprojResolveAssemblyReference.cache
