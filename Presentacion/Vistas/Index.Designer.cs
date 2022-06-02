@@ -106,8 +106,10 @@
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Location = new System.Drawing.Point(130, 130);
             this.dgvEmpleados.Name = "dgvEmpleados";
+            this.dgvEmpleados.RowHeadersVisible = false;
             this.dgvEmpleados.Size = new System.Drawing.Size(582, 303);
             this.dgvEmpleados.TabIndex = 1;
+            this.dgvEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellClick);
             // 
             // lblTituloListado
             // 
@@ -138,9 +140,9 @@
             this.lblFiltrar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblFiltrar.Location = new System.Drawing.Point(127, 42);
             this.lblFiltrar.Name = "lblFiltrar";
-            this.lblFiltrar.Size = new System.Drawing.Size(49, 20);
+            this.lblFiltrar.Size = new System.Drawing.Size(59, 20);
             this.lblFiltrar.TabIndex = 4;
-            this.lblFiltrar.Text = "Filtrar";
+            this.lblFiltrar.Text = "Buscar";
             // 
             // lblDescripcion
             // 
@@ -342,25 +344,25 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.DataGridView dgvEmpleados;
-        private System.Windows.Forms.Label lblCodigo;
-        private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.Label lblApellido;
-        private System.Windows.Forms.TextBox txtDni;
-        private System.Windows.Forms.Label lblDni;
-        private System.Windows.Forms.TextBox txtDomicilio;
-        private System.Windows.Forms.Label lblDomicilio;
-        private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.Label lblTelefono;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCancelar;
         public System.Windows.Forms.Label lblTituloListado;
         public System.Windows.Forms.ComboBox cboEmpleados;
         public System.Windows.Forms.Label lblFiltrar;
         public System.Windows.Forms.Label lblDescripcion;
         public System.Windows.Forms.TextBox txtDescripcion;
+        public System.Windows.Forms.DataGridView dgvEmpleados;
+        public System.Windows.Forms.Label lblNombre;
+        public System.Windows.Forms.Label lblApellido;
+        public System.Windows.Forms.Label lblDni;
+        public System.Windows.Forms.Label lblDomicilio;
+        public System.Windows.Forms.Label lblTelefono;
+        public System.Windows.Forms.Label lblCodigo;
+        public System.Windows.Forms.TextBox txtCodigo;
+        public System.Windows.Forms.TextBox txtNombre;
+        public System.Windows.Forms.TextBox txtApellido;
+        public System.Windows.Forms.TextBox txtDni;
+        public System.Windows.Forms.TextBox txtDomicilio;
+        public System.Windows.Forms.TextBox txtTelefono;
+        public System.Windows.Forms.Button btnGuardar;
+        public System.Windows.Forms.Button btnCancelar;
     }
 }

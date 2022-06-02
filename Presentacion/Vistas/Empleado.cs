@@ -12,6 +12,7 @@ namespace Presentacion.Vistas
 {
     public partial class Empleado : Form
     {
+        private int Codigo;
         private Controladores.MetodosGenericos _MetodoGenerico;
         private Controladores.Empleado _Empleado;
 
@@ -57,6 +58,7 @@ namespace Presentacion.Vistas
             btnCancelar.Hide();
             ///
             cboEmpleados.DataSource = Opciones();
+            dgvEmpleados.DataSource = _Empleado.Listado();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -72,6 +74,8 @@ namespace Presentacion.Vistas
             //Revelados
             lblCodigo.Show();
             txtCodigo.Show();
+            txtCodigo.Text = _Empleado.ObtenerUltimoCodigo().ToString();
+            txtCodigo.Enabled = false;
             lblNombre.Show();
             txtNombre.Show();
             lblApellido.Show();
@@ -89,37 +93,52 @@ namespace Presentacion.Vistas
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            //Rotulo y Campos 
-            //Ocultos
-            lblTituloListado.Hide();
-            lblFiltrar.Hide();
-            lblDescripcion.Hide();
-            txtDescripcion.Hide();
-            dgvEmpleados.Hide();
-            cboEmpleados.Hide();
-            //Revelados
-            lblCodigo.Show();
-            txtCodigo.Show();
-            lblNombre.Show();
-            txtNombre.Show();
-            lblApellido.Show();
-            txtApellido.Show();
-            lblDni.Show();
-            txtDni.Show();
-            lblDomicilio.Show();
-            txtDomicilio.Show();
-            lblTelefono.Show();
-            txtTelefono.Show();
-            btnCancelar.Show();
-            btnGuardar.Show();
-            //
+            if (_MetodoGenerico.ElementoSeleccionado(Codigo) == false)
+            {
+                //Rotulo y Campos 
+                //Ocultos
+                lblTituloListado.Hide();
+                lblFiltrar.Hide();
+                lblDescripcion.Hide();
+                txtDescripcion.Hide();
+                dgvEmpleados.Hide();
+                cboEmpleados.Hide();
+                //Revelados
+                lblCodigo.Show();
+                lblNombre.Show();
+                lblApellido.Show();
+                lblDni.Show();
+                lblDomicilio.Show();
+                lblTelefono.Show();
+                txtCodigo.Show();
+                txtNombre.Show();
+                txtApellido.Show();
+                txtDni.Show();
+                txtDomicilio.Show();
+                txtTelefono.Show();
+                //Carga previa de datos
+                var empleado = _Empleado.ObtenerEmpleado(Codigo);
+                txtCodigo.Text = empleado.Codigo.ToString();
+                txtCodigo.Enabled = false;
+                txtNombre.Text = empleado.Nombre.ToString();
+                txtApellido.Text = empleado.Apellido.ToString();
+                txtDni.Text = empleado.Dni.ToString();
+                txtDomicilio.Text = empleado.Domicilio.ToString();
+                txtTelefono.Text = empleado.Telefono.ToString();
+                //Botones
+                btnCancelar.Show();
+                btnGuardar.Show();
+                //
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            if (_MetodoGenerico.ElementoSeleccionado(Codigo) == false)
+            {
+                _Empleado.ABM(1, this, Codigo, dgvEmpleados);
+            }
         }
-
         private void cboEmpleados_SelectedIndexChanged(object sender, EventArgs e)
         {
             _MetodoGenerico.TituloYTexto(cboEmpleados,lblDescripcion,txtDescripcion);
@@ -132,7 +151,12 @@ namespace Presentacion.Vistas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            _Empleado.ABM(1, this, 0, dgvEmpleados);
+        }
 
+        private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Codigo = Convert.ToInt32(dgvEmpleados.Rows[e.RowIndex].Cells[0].Value.ToString());
         }
     }
 }
