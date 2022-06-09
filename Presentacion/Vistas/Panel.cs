@@ -12,9 +12,12 @@ namespace Presentacion.Vistas
 {
     public partial class Panel : Form
     {
+        private Controladores.MetodosGenericos MetodosGenericos;
+
         public Panel()
         {
             InitializeComponent();
+            MetodosGenericos = new Controladores.MetodosGenericos();
         }
 
         private void mnuEmpleados_Click(object sender, EventArgs e)
@@ -22,6 +25,11 @@ namespace Presentacion.Vistas
             Vistas.Empleado indice = new Empleado();
             indice.MdiParent = this;
             indice.Show();
+        }
+
+        private void mnuSalir_Click(object sender, EventArgs e)
+        {
+            MetodosGenericos.Salir();
         }
     }
 }

@@ -36,7 +36,7 @@ namespace Presentacion.Controladores
         public List<Modelos.Empleado> Listado()
         {
             Leer();
-            return this.Empleados.OrderBy(x => x.Nombre).ToList();
+            return this.Empleados.OrderBy(x=>x.Codigo).ToList();
         }
         public bool Existe(string nombre, string apellido,int operacion,int dni)
         {
@@ -53,6 +53,36 @@ namespace Presentacion.Controladores
             Leer();
             return this.Empleados.Count == 0 ? 1 : Empleados.Max(x => x.Codigo) + 1;
         }
+        public List<Modelos.Empleado> BuscarEmpleado(string texto,string opcion)
+        {
+            Leer();
+            List<Modelos.Empleado> empleados = new List<Modelos.Empleado>();
+            switch (opcion)
+            {
+                case "Codigo":
+                    empleados = Empleados.Where(x => x.Codigo == Convert.ToInt32(texto)).ToList();//Revisar para que reciba solo numeros enteros
+                    break;
+                case "Nombre":
+                    empleados = Empleados.Where(x => x.Nombre.Contains(texto)).ToList();
+                    break;
+                case "Apellido":
+                    empleados = Empleados.Where(x => x.Apellido.Contains(texto)).ToList();
+                    break;
+                case "Dni":
+                    empleados = Empleados.Where(x => x.Dni == Convert.ToInt32(texto)).ToList();//Revisar para que reciba solo numeros enteros
+                    break;
+                case "Domicilio":
+                    empleados = Empleados.Where(x => x.Domicilio.Contains(texto)).ToList();
+                    break;
+                case "Telefono":
+                    empleados = Empleados.Where(x => x.Telefono.Contains(texto)).ToList();
+                    break;
+                default:
+                    empleados = Empleados.ToList();
+                    break;
+            }
+            return empleados;
+        }
         public void ABM(int operacion, Vistas.Empleado gestionEmpleado, int codigo, DataGridView grillaEmpleado)
         {
             Leer();
@@ -61,30 +91,35 @@ namespace Presentacion.Controladores
             switch (operacion)
             {
                 case 1://Alta
-                    if (Existe(gestionEmpleado.txtNombre.Text, gestionEmpleado.txtApellido.Text,1,0) != true)
+                    if (MetodosGenericos.ValidarCamposCompletados(gestionEmpleado))
                     {
-                        empleado.Codigo = Empleados.Count == 0 ? 1 : ObtenerUltimoCodigo();
-                        empleado.Nombre = gestionEmpleado.txtNombre.Text;
-                        empleado.Apellido = gestionEmpleado.txtApellido.Text;
-                        empleado.Dni = Convert.ToInt32(gestionEmpleado.txtDni.Text);
-                        empleado.Domicilio = gestionEmpleado.txtDomicilio.Text;
-                        empleado.Telefono = gestionEmpleado.txtTelefono.Text;
-                        this.Empleados.Add(empleado);
-                        Guardar();
-                        MetodosGenericos.ABMElementos("Empleado", 1);
-                        MetodosGenericos.LimpiarCampos(gestionEmpleado);
-                        grillaEmpleado.DataSource = Listado();
-                        gestionEmpleado.txtCodigo.Text = ObtenerUltimoCodigo().ToString();
-                        grillaEmpleado.ClearSelection();
-                    }
-                    else
-                    {
-                        MetodosGenericos.MensajeExistenciaElemento("Empleado");
+                        if (Existe(gestionEmpleado.txtNombre.Text, gestionEmpleado.txtApellido.Text, 1, 0) != true)
+                        {
+                            empleado.Codigo = Empleados.Count == 0 ? 1 : ObtenerUltimoCodigo();
+                            empleado.Nombre = gestionEmpleado.txtNombre.Text;
+                            empleado.Apellido = gestionEmpleado.txtApellido.Text;
+                            empleado.Dni = Convert.ToInt32(gestionEmpleado.txtDni.Text);
+                            empleado.Domicilio = gestionEmpleado.txtDomicilio.Text;
+                            empleado.Telefono = gestionEmpleado.txtTelefono.Text;
+                            this.Empleados.Add(empleado);
+                            Guardar();
+                            MetodosGenericos.ABMElementos("Empleado", 1);
+                            MetodosGenericos.LimpiarCampos(gestionEmpleado);
+                            grillaEmpleado.DataSource = Listado();
+                            gestionEmpleado.txtCodigo.Text = ObtenerUltimoCodigo().ToString();
+                            grillaEmpleado.ClearSelection();
+                        }
+                        else
+                        {
+                            MetodosGenericos.MensajeExistenciaElemento("Empleado");
+                        }
                     }
                     break;
                 case 2://Modificiacion
-                    if (Existe(gestionEmpleado.txtNombre.Text, gestionEmpleado.txtApellido.Text, 1,0) != true)
+                    if (MetodosGenericos.ValidarCamposCompletados(gestionEmpleado))
                     {
+                        if (Existe(gestionEmpleado.txtNombre.Text, gestionEmpleado.txtApellido.Text, 1, 0) != true)
+                        {
                             var _empleadoE = ObtenerEmpleado(codigo);
                             _empleadoE.Nombre = gestionEmpleado.txtNombre.Text;
                             _empleadoE.Apellido = gestionEmpleado.txtApellido.Text;
@@ -117,10 +152,11 @@ namespace Presentacion.Controladores
                             grillaEmpleado.DataSource = Listado();
                             grillaEmpleado.ClearSelection();
                             gestionEmpleado.dgvEmpleados.Show();
-                    }
-                    else
-                    {
+                        }
+                        else
+                        {
                             MetodosGenericos.MensajeExistenciaElemento("Empleado");
+                        }
                     }
                     break;
                 case 3://Baja

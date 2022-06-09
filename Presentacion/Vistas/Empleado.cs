@@ -88,12 +88,14 @@ namespace Presentacion.Vistas
             txtTelefono.Show();
             btnCancelar.Show();
             btnGuardar.Show();
+            //Campos limpios
+            txtNombre.Text = txtApellido.Text = txtDni.Text = txtDomicilio.Text = txtTelefono.Text = string.Empty;
             //
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (_MetodoGenerico.ElementoSeleccionado(Codigo) == false)
+            if (_MetodoGenerico.ElementoSeleccionado(Codigo,dgvEmpleados.RowCount) == false)
             {
                 //Rotulo y Campos 
                 //Ocultos
@@ -134,7 +136,7 @@ namespace Presentacion.Vistas
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (_MetodoGenerico.ElementoSeleccionado(Codigo) == false)
+            if (_MetodoGenerico.ElementoSeleccionado(Codigo, dgvEmpleados.RowCount) == false)
             {
                 if (_MetodoGenerico.Eliminar(this) == DialogResult.Yes)
                 {
@@ -144,7 +146,8 @@ namespace Presentacion.Vistas
         }
         private void cboEmpleados_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _MetodoGenerico.TituloYTexto(cboEmpleados,lblDescripcion,txtDescripcion);
+            dgvEmpleados.DataSource = _Empleado.Listado();
+            _MetodoGenerico.TituloYTexto(cboEmpleados,lblDescripcion,txtDescripcion,dgvEmpleados);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -168,6 +171,38 @@ namespace Presentacion.Vistas
         private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Codigo = Convert.ToInt32(dgvEmpleados.Rows[e.RowIndex].Cells[0].Value.ToString());
+        }
+
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+            if (cboEmpleados.Text == "Codigo" || cboEmpleados.Text == "Dni" || cboEmpleados.Text == "Telefono")
+            {
+                if (!string.IsNullOrEmpty(txtDescripcion.Text))
+                {
+                    if (_MetodoGenerico.IsAllDigits(txtDescripcion.Text)!=false)
+                    {
+                        dgvEmpleados.DataSource = _Empleado.BuscarEmpleado(txtDescripcion.Text, cboEmpleados.Text);
+                    }
+                    else
+                    {
+                        txtDescripcion.Text = string.Empty;
+                    }
+                }
+            }
+            else
+            {
+                dgvEmpleados.DataSource = _Empleado.BuscarEmpleado(txtDescripcion.Text, cboEmpleados.Text);
+            }
+        }
+
+        private void txtDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            _MetodoGenerico.SoloNumeros(e);
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            _MetodoGenerico.SoloNumeros(e);
         }
     }
 }
