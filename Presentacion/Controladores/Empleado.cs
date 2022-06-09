@@ -38,7 +38,7 @@ namespace Presentacion.Controladores
             Leer();
             return this.Empleados.OrderBy(x => x.Nombre).ToList();
         }
-        public bool Existe(string nombre, string apellido)
+        public bool Existe(string nombre, string apellido,int operacion,int dni)
         {
             Leer();
             return this.Empleados.Any(x => x.Nombre == nombre && x.Apellido == apellido);
@@ -61,7 +61,7 @@ namespace Presentacion.Controladores
             switch (operacion)
             {
                 case 1://Alta
-                    if (Existe(gestionEmpleado.txtNombre.Text, gestionEmpleado.txtApellido.Text) != true)
+                    if (Existe(gestionEmpleado.txtNombre.Text, gestionEmpleado.txtApellido.Text,1,0) != true)
                     {
                         empleado.Codigo = Empleados.Count == 0 ? 1 : ObtenerUltimoCodigo();
                         empleado.Nombre = gestionEmpleado.txtNombre.Text;
@@ -83,17 +83,44 @@ namespace Presentacion.Controladores
                     }
                     break;
                 case 2://Modificiacion
-                    if (Existe(gestionEmpleado.txtNombre.Text, gestionEmpleado.txtApellido.Text) != true)
+                    if (Existe(gestionEmpleado.txtNombre.Text, gestionEmpleado.txtApellido.Text, 1,0) != true)
                     {
-                        _empleado.Nombre = gestionEmpleado.txtNombre.Text;
-                        _empleado.Apellido = gestionEmpleado.txtApellido.Text;
-                        _empleado.Dni = Convert.ToInt32(gestionEmpleado.txtDni.Text);
-                        _empleado.Domicilio = gestionEmpleado.txtDomicilio.Text;
-                        _empleado.Telefono = gestionEmpleado.txtTelefono.Text;
-                        Guardar();
-                        MetodosGenericos.ABMElementos("Empleado", 2);
-                        grillaEmpleado.DataSource = Listado();
-                        grillaEmpleado.ClearSelection();
+                            var _empleadoE = ObtenerEmpleado(codigo);
+                            _empleadoE.Nombre = gestionEmpleado.txtNombre.Text;
+                            _empleadoE.Apellido = gestionEmpleado.txtApellido.Text;
+                            _empleadoE.Dni = Convert.ToInt32(gestionEmpleado.txtDni.Text);
+                            _empleadoE.Domicilio = gestionEmpleado.txtDomicilio.Text;
+                            _empleadoE.Telefono = gestionEmpleado.txtTelefono.Text;
+                            Guardar();
+                            MetodosGenericos.ABMElementos("Empleado", 2);
+                            gestionEmpleado.lblTituloListado.Show();
+                            gestionEmpleado.lblFiltrar.Show();
+                            gestionEmpleado.cboEmpleados.Show();
+                            //Ocultar
+                            //Rotulos
+                            gestionEmpleado.lblCodigo.Hide();
+                            gestionEmpleado.lblNombre.Hide();
+                            gestionEmpleado.lblApellido.Hide();
+                            gestionEmpleado.lblDni.Hide();
+                            gestionEmpleado.lblDomicilio.Hide();
+                            gestionEmpleado.lblTelefono.Hide();
+                            //Campos
+                            gestionEmpleado.txtCodigo.Hide();
+                            gestionEmpleado.txtNombre.Hide();
+                            gestionEmpleado.txtApellido.Hide();
+                            gestionEmpleado.txtDni.Hide();
+                            gestionEmpleado.txtDomicilio.Hide();
+                            gestionEmpleado.txtTelefono.Hide();
+                            //Botones
+                            gestionEmpleado.btnGuardar.Hide();
+                            gestionEmpleado.btnCancelar.Hide();
+                            grillaEmpleado.DataSource = Listado();
+                            grillaEmpleado.ClearSelection();
+                            gestionEmpleado.dgvEmpleados.Show();
+                    }
+                    else
+                    {
+                            MetodosGenericos.MensajeExistenciaElemento("Empleado");
                     }
                     break;
                 case 3://Baja

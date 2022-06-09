@@ -9,12 +9,12 @@ namespace Presentacion.Controladores
 {
     public class MetodosGenericos
     {
-        public void Cancelar(Vistas.Empleado empleado,int i)
+        public void Cancelar(Vistas.Empleado empleado, int i)
         {
             DialogResult respuesta = MessageBox.Show("¿ Esta seguro de cancelar ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             switch (respuesta)
             {
-                case DialogResult.Yes :
+                case DialogResult.Yes:
                     switch (i)
                     {
                         case 1://Empleado
@@ -45,7 +45,7 @@ namespace Presentacion.Controladores
                     break;
             }
         }
-        public void TituloYTexto(ComboBox ComboBox, Label titulo,TextBox texto)
+        public void TituloYTexto(ComboBox ComboBox, Label titulo, TextBox texto)
         {
             if (ComboBox.Text != "Seleccione")
             {
@@ -76,9 +76,9 @@ namespace Presentacion.Controladores
         }
         public void LimpiarCampos(Control control)
         {
-            foreach(var i in control.Controls)
+            foreach (var i in control.Controls)
             {
-                if( i is TextBox)
+                if (i is TextBox)
                 {
                     ((TextBox)i).Clear();
                 }
@@ -91,15 +91,20 @@ namespace Presentacion.Controladores
         public bool ElementoSeleccionado(int Codigo)
         {
             bool resultado = false;
-            switch(Codigo)
+            switch (Codigo)
             {
                 case 0:
                     MessageBox.Show("Debe seleccionar un registro", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     resultado = true;
                     break;
-                    
+
             }
             return resultado;
+        }
+        public DialogResult Eliminar(Form form)
+        {
+            DialogResult respuesta = MessageBox.Show("¿ Esta seguro de eliminar ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            return respuesta;
         }
     }
 }

@@ -136,7 +136,10 @@ namespace Presentacion.Vistas
         {
             if (_MetodoGenerico.ElementoSeleccionado(Codigo) == false)
             {
-                _Empleado.ABM(1, this, Codigo, dgvEmpleados);
+                if (_MetodoGenerico.Eliminar(this) == DialogResult.Yes)
+                {
+                    _Empleado.ABM(3, this, Codigo, dgvEmpleados);
+                }
             }
         }
         private void cboEmpleados_SelectedIndexChanged(object sender, EventArgs e)
@@ -151,7 +154,15 @@ namespace Presentacion.Vistas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            _Empleado.ABM(1, this, 0, dgvEmpleados);
+            if(Convert.ToInt32(txtCodigo.Text)>=_Empleado.ObtenerUltimoCodigo())
+            {
+                _Empleado.ABM(1, this, 0, dgvEmpleados);
+            }
+            else
+            {
+                _Empleado.ABM(2, this, Codigo, dgvEmpleados);
+            }
+            
         }
 
         private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)

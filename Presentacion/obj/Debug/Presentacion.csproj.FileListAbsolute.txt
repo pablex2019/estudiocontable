@@ -11,3 +11,18 @@ C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\P
 C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\obj\Debug\Presentacion.exe
 C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\obj\Debug\Presentacion.pdb
 C:\Users\pablo\OneDrive\Documentos\Visual Studio 2015\Projects\estudiocontable\Presentacion\obj\Debug\Presentacion.csprojResolveAssemblyReference.cache
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\bin\Debug\Presentacion.exe.config
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\bin\Debug\Presentacion.exe
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\bin\Debug\Presentacion.pdb
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\bin\Debug\Newtonsoft.Json.dll
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\bin\Debug\Newtonsoft.Json.xml
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.csprojAssemblyReference.cache
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.Properties.Resources.resources
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.Vistas.Empleado.resources
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.Vistas.InicioSesion.resources
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.Vistas.Panel.resources
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.csproj.GenerateResource.cache
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.exe
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.pdb
