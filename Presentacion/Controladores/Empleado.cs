@@ -38,10 +38,10 @@ namespace Presentacion.Controladores
             Leer();
             return this.Empleados.OrderBy(x=>x.Codigo).ToList();
         }
-        public bool Existe(string nombre, string apellido,int operacion,int dni)
+        public bool Existe(string nombre, string apellido,int operacion,string dni)
         {
             Leer();
-            return this.Empleados.Any(x => x.Nombre == nombre && x.Apellido == apellido);
+            return this.Empleados.Any(x => x.Nombre == nombre && x.Apellido == apellido && x.Dni == Convert.ToInt32(dni));
         }
         public Modelos.Empleado ObtenerEmpleado(int codigo)
         {
@@ -93,7 +93,7 @@ namespace Presentacion.Controladores
                 case 1://Alta
                     if (MetodosGenericos.ValidarCamposCompletados(gestionEmpleado))
                     {
-                        if (Existe(gestionEmpleado.txtNombre.Text, gestionEmpleado.txtApellido.Text, 1, 0) != true)
+                        if (Existe(gestionEmpleado.txtNombre.Text, gestionEmpleado.txtApellido.Text, 1,gestionEmpleado.txtDni.Text) != true)
                         {
                             empleado.Codigo = Empleados.Count == 0 ? 1 : ObtenerUltimoCodigo();
                             empleado.Nombre = gestionEmpleado.txtNombre.Text;
@@ -118,7 +118,7 @@ namespace Presentacion.Controladores
                 case 2://Modificiacion
                     if (MetodosGenericos.ValidarCamposCompletados(gestionEmpleado))
                     {
-                        if (Existe(gestionEmpleado.txtNombre.Text, gestionEmpleado.txtApellido.Text, 1, 0) != true)
+                        if (Existe(gestionEmpleado.txtNombre.Text, gestionEmpleado.txtApellido.Text, 1, gestionEmpleado.txtDni.Text) != true)
                         {
                             var _empleadoE = ObtenerEmpleado(codigo);
                             _empleadoE.Nombre = gestionEmpleado.txtNombre.Text;

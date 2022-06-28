@@ -18,6 +18,8 @@ C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\bin\Debug\N
 C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\bin\Debug\Newtonsoft.Json.xml
 C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.csprojAssemblyReference.cache
 C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.Properties.Resources.resources
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.Vistas.Cliente.resources
+C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.Vistas.Contador.resources
 C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.Vistas.Empleado.resources
 C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.Vistas.InicioSesion.resources
 C:\Users\proda\Desktop\Proyectos\Github\estudiocontable\Presentacion\obj\Debug\Presentacion.Vistas.Panel.resources

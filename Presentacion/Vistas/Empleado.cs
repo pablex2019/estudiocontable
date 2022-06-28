@@ -152,7 +152,7 @@ namespace Presentacion.Vistas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            _MetodoGenerico.Cancelar(this,1);
+            _MetodoGenerico.Cancelar(this,null,null,1);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

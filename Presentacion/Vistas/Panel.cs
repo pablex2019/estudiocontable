@@ -31,5 +31,22 @@ namespace Presentacion.Vistas
         {
             MetodosGenericos.Salir();
         }
+
+        private void mnuClientes_Click(object sender, EventArgs e)
+        {
+            Vistas.Cliente indiceCliente = new Cliente();
+            indiceCliente.MdiParent = this;
+            indiceCliente.Show();
+        }
+
+        private void mnuContadores_Click(object sender, EventArgs e)
+        {
+            new Vistas.Contador().Show();
+        }
+
+        private void mnuSecretarias_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

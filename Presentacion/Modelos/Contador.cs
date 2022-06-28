@@ -8,7 +8,7 @@ namespace Presentacion.Modelos
 {
     public class Contador
     {
-        public int idSecretaria { get; set; }
+        public int idContador { get; set; }
         public string Area { get; set; }
         public string Puesto { get; set; }
         public List<Empleado> Empleados { get; set; }

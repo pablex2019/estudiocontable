@@ -9,7 +9,7 @@ namespace Presentacion.Controladores
 {
     public class MetodosGenericos
     {
-        public void Cancelar(Vistas.Empleado empleado, int i)
+        public void Cancelar(Vistas.Empleado empleado,Vistas.Cliente cliente,Vistas.Contador contador, int i)
         {
             DialogResult respuesta = MessageBox.Show("¿ Esta seguro de cancelar ?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             switch (respuesta)
@@ -41,13 +41,32 @@ namespace Presentacion.Controladores
                             empleado.btnGuardar.Hide();
                             empleado.btnCancelar.Hide();
                             break;
+                        case 3://Contadores
+                            contador.lblTituloListado.Show();
+                            contador.lblFiltrar.Show();
+                            contador.cboContadores.Show();
+                            contador.dgvContadores.Show();
+                            //Ocultar
+                            //Rotulos
+                            contador.lblListadoEmpleados.Hide();
+                            contador.lblArea.Hide();
+                            contador.lblPuesto.Hide();
+                            //Campos
+                            contador.txtArea.Hide();
+                            contador.txtPuesto.Hide();
+                            //Grilla
+                            contador.dgvEmpleados.Hide();
+                            //Botones
+                            contador.btnGuardar.Hide();
+                            contador.btnCancelar.Hide();
+                            break;
                     }
                     break;
             }
         }
         public void Salir()
         {
-            DialogResult result = MessageBox.Show("¿Esta seguro de salir", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            DialogResult result = MessageBox.Show("¿Esta seguro de salir?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             switch (result)
             {
                 case DialogResult.Yes:

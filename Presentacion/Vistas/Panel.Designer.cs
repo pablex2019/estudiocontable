@@ -30,8 +30,10 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnuEmpleados = new System.Windows.Forms.ToolStripMenuItem();
-            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSalir = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuContadores = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSecretarias = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,7 +41,9 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuEmpleados,
-            this.clientesToolStripMenuItem,
+            this.mnuClientes,
+            this.mnuContadores,
+            this.mnuSecretarias,
             this.mnuSalir});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -54,11 +58,12 @@
             this.mnuEmpleados.Text = "Empleados";
             this.mnuEmpleados.Click += new System.EventHandler(this.mnuEmpleados_Click);
             // 
-            // clientesToolStripMenuItem
+            // mnuClientes
             // 
-            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.clientesToolStripMenuItem.Text = "Clientes";
+            this.mnuClientes.Name = "mnuClientes";
+            this.mnuClientes.Size = new System.Drawing.Size(61, 20);
+            this.mnuClientes.Text = "Clientes";
+            this.mnuClientes.Click += new System.EventHandler(this.mnuClientes_Click);
             // 
             // mnuSalir
             // 
@@ -66,6 +71,20 @@
             this.mnuSalir.Size = new System.Drawing.Size(41, 20);
             this.mnuSalir.Text = "Salir";
             this.mnuSalir.Click += new System.EventHandler(this.mnuSalir_Click);
+            // 
+            // mnuContadores
+            // 
+            this.mnuContadores.Name = "mnuContadores";
+            this.mnuContadores.Size = new System.Drawing.Size(80, 20);
+            this.mnuContadores.Text = "Contadores";
+            this.mnuContadores.Click += new System.EventHandler(this.mnuContadores_Click);
+            // 
+            // mnuSecretarias
+            // 
+            this.mnuSecretarias.Name = "mnuSecretarias";
+            this.mnuSecretarias.Size = new System.Drawing.Size(70, 20);
+            this.mnuSecretarias.Text = "Secretaria";
+            this.mnuSecretarias.Click += new System.EventHandler(this.mnuSecretarias_Click);
             // 
             // Panel
             // 
@@ -91,7 +110,9 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mnuEmpleados;
-        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuClientes;
         private System.Windows.Forms.ToolStripMenuItem mnuSalir;
+        private System.Windows.Forms.ToolStripMenuItem mnuContadores;
+        private System.Windows.Forms.ToolStripMenuItem mnuSecretarias;
     }
 }
